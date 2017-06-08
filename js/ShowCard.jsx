@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 const ShowCard = React.createClass({
+  propyTypes: {
+    poster: PropTypes.string,
+    title: PropTypes.string,
+    year: PropTypes.string,
+    description: PropTypes.string
+  },
   render () {
-    const { poster, title, year, description } = this.props.show
+    const { poster, title, year, description } = this.props
     return (
       <div className='show-card'>
         <img src={`/public/img/posters/${poster}`} />
