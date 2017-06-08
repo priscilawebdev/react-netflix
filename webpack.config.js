@@ -9,7 +9,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    publicPath: '/public/'
+    publicPath: './public/'
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx']
@@ -38,7 +38,7 @@ module.exports = {
         loader: 'babel-loader',
         query:
         {
-          presets:['es2015', 'react']
+          presets: ['es2015', 'react']
         }
       },
       {
