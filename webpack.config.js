@@ -16,7 +16,7 @@ module.exports = {
     extensions: ['.js', '.json', '.jsx']
   },
   node: {
-    fs: "empty"
+    fs: 'empty'
   },
   stats: {
     colors: true,

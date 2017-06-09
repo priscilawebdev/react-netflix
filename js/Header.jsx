@@ -4,15 +4,38 @@ import { Link } from 'react-router'
 
 export const renderHeader = ({
  moduleName = 'Header',
- title = 'svideo'
-} = {}) =>
-  <header>
-    <h1>
-      <Link to='/'>
-        {title}
-      </Link>
-    </h1>
-  </header>
+ title = 'svideo',
+ showSearch = false,
+ ...otherProps
+} = {}) => {
+  let utilSpace
+  if (showSearch) {
+    utilSpace = <input
+      onChange={otherProps.handleSearchTermChange}
+      value={otherProps.searchTerm}
+      type='text'
+      placeholder='Search'
+    />
+  } else {
+    utilSpace = (
+      <h2>
+        <Link to='/search'>
+          Back
+        </Link>
+      </h2>
+    )
+  }
+  return (
+    <header>
+      <h1>
+        <Link to='/'>
+          {title}
+        </Link>
+      </h1>
+      {utilSpace}
+    </header>
+  )
+}
 
 const Header = pure(renderHeader)
 
