@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter, Match } from 'react-router'
+import { find } from 'lodash'
 import Landing from './Landing'
 import Search from './Search'
 import Details from './Details'
@@ -20,7 +21,10 @@ const App = React.createClass({
           />
           <Match
             pattern='/details/:id'
-            component={Details}
+            component={(props) => {
+              const shows = find(preload.shows, { 'imdbID': props.params.id })
+              return <Details show={shows} {...props} />
+            }}
           />
         </div>
       </BrowserRouter>
