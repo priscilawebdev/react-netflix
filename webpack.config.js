@@ -15,6 +15,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json', '.jsx']
   },
+  node: {
+    fs: "empty"
+  },
   stats: {
     colors: true,
     reasons: true,

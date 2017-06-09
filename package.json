@@ -26,14 +26,17 @@
   "dependencies": {
     "axios": "^0.15.3",
     "express": "4.14.0",
+    "fs": "^0.0.1-security",
     "history": "^4.4.0",
     "lodash": "4.16.2",
     "preact": "^6.4.0",
     "preact-compat": "^3.9.3",
     "react": "15.3.2",
     "react-dom": "15.3.2",
+    "react-fp": "^1.0.0",
     "react-redux": "4.4.0",
     "react-router": "4.0.0-alpha.5",
+    "recompose": "^0.23.5",
     "redux": "3.3.1",
     "redux-thunk": "^2.1.0"
   },
