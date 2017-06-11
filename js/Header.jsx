@@ -1,18 +1,21 @@
 import React, { PropTypes as T } from 'react'
+import { connect } from 'react-redux'
+import { setSearchTerm } from './actionCreators'
 import { pure } from 'recompose'
 import { Link } from 'react-router'
 
 export const renderHeader = ({
- moduleName = 'Header',
- title = 'svideo',
- showSearch = false,
- ...otherProps
+   moduleName = 'Header',
+   title = 'svideo',
+   showSearch = false,
+   handleSearchTermChange,
+   searchTerm
 } = {}) => {
   let utilSpace
   if (showSearch) {
     utilSpace = <input
-      onChange={otherProps.handleSearchTermChange}
-      value={otherProps.searchTerm}
+      onChange={handleSearchTermChange}
+      value={searchTerm}
       type='text'
       placeholder='Search'
     />
@@ -46,4 +49,19 @@ Header.propTypes = {
   title: T.string
 }
 
-export default Header
+const mapStateToProps = (state) => {
+  return {
+    searchTerm: state.searchTerm
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  handleSearchTermChange: (event) => {
+    dispatch(setSearchTerm(event.target.value))
+  }
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header)

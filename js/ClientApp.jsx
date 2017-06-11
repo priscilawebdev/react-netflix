@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter, Match } from 'react-router'
 import { Provider } from 'react-redux'
+import { find } from 'lodash'
 import store from './store'
 import Landing from './Landing'
 import Search from './Search'
@@ -24,8 +25,8 @@ const App = React.createClass({
             <Match
               pattern='/details/:id'
               component={(props) => {
-                const shows = preload.shows.filter((show) => props.params.id === show.imdbID)
-                return <Details show={shows[0]} {...props} />
+                const shows = find(preload.shows, { 'imdbID': props.params.id })
+                return <Details show={shows} {...props} />
               }}
             />
           </div>
