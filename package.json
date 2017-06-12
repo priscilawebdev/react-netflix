@@ -10,7 +10,9 @@
     "watch": "npm run build -- --watch",
     "test": "NODE_ENV=test jest",
     "update-test": "npm run test -- -u",
-    "cover": "npm run test -- --coverage"
+    "cover": "npm run test -- --coverage",
+    "server": "NODE_ENV=server nodemon server.js",
+    "production": "NODE_ENV=production webpack -p"
   },
   "repository": {
     "type": "git",
@@ -25,10 +27,12 @@
   "license": "UNLICENSED",
   "dependencies": {
     "axios": "^0.16.2",
+    "cross-env": "^5.0.1",
     "express": "4.14.0",
     "fs": "^0.0.1-security",
     "history": "^4.4.0",
     "lodash": "4.16.2",
+    "nodemon": "^1.11.0",
     "preact": "^6.4.0",
     "preact-compat": "^3.9.3",
     "react": "15.3.2",
@@ -38,7 +42,8 @@
     "react-router": "4.0.0-alpha.5",
     "recompose": "^0.23.5",
     "redux": "3.3.1",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "win-node-env": "^0.1.0"
   },
   "devDependencies": {
     "babel-core": "6.16.0",
@@ -68,6 +73,7 @@
     "jsdom": "9.5.0",
     "json-loader": "0.5.4",
     "react-addons-test-utils": "15.3.2",
+    "react-hot-loader": "next",
     "react-test-renderer": "15.3.2",
     "style-loader": "0.13.1",
     "webpack": "^2.6.1",

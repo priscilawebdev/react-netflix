@@ -38,10 +38,12 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  dispatchSetSearchTerm (searchTerm) {
-    dispatch(setSearchTerm(searchTerm))
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatchSetSearchTerm (searchTerm) {
+      dispatch(setSearchTerm(searchTerm))
+    }
   }
-})
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Landing)

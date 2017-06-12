@@ -1,13 +1,22 @@
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   context: __dirname,
   entry: './js/ClientApp',
-  devtool: 'eval',
+ // devtool: 'cheap-eval-source-map',
   output: {
     path: path.join(__dirname, '/public'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: './public/'
   },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: true
+      }
+    })
+  ],
   devServer: {
     publicPath: './public/',
     historyApiFallback: true
